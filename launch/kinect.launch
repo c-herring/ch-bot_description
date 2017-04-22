@@ -1,0 +1,26 @@
+<launch>
+	<arg name="camera" default="camera" />
+	
+	<!--group ns="kinect"-->
+		<!--remap from="camera/depth/image_raw" to="sscann"/-->
+		<include file="$(find openni_launch)/launch/openni.launch" />
+<!--		
+		<node pkg="nodelet" type="nodelet" name="depthimage_to_laserscan" args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet camera/camera_nodelet_manager" >
+			<param name="output_frame_id" value="/camera_depth_frame" />
+			<remap from="image" to="/camera/depth/image_raw"/>
+
+		</node>
+-->
+
+<!-- Normal node works: -->
+		<node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
+			<remap from="image" to="/camera/depth/image_raw"/>
+		</node>
+
+		
+		<!--node pkg="tf" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 odom base_link 100" /-->
+		<node pkg="tf" type="static_transform_publisher" name="scan_link_broadcaster" args="0 0 0 0 0 0 base_link camera_link 100" />
+		<!--node pkg="tf" type="static_transform_publisher" name="map_link_broadcaster" args="0 0 0 0 0 0 camera_link map 100" /-->
+	<!--/group-->
+	
+</launch>
