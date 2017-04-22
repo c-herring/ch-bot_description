@@ -1,14 +1,15 @@
 
 
 <launch>
-
-	<machine name="rosPi" address="192.168.1.32" env-loader="~/ch-bot_ws/devel/env.sh" user="pi" />
 	
 	
 	<!--param name="ch_bot_model" command="$(find xacro.py) '$(find ch_bot_description)/urdf/ch_bot.xacro'" /-->
+
+	
+	<machine name="rosPi" address="192.168.1.32" env-loader="/home/pi/ch-bot_ws/devel/env.sh" user="pi" />
 	
 	<param name="ch_bot_model" command="xacro '$(find ch_bot_description)/urdf/ch_bot.xacro'" />
 
-	<node machine="rosPi" name="wheel_motor_controller_node" pkg="ch_bot" type="wheel_motor_controller_node" />
+	<node machine="rosPi" pkg="ch_bot" name="wheel_motor_controller_node" type="wheel_motor_controller_node" />
 
 </launch>
