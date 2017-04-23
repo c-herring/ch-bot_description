@@ -12,4 +12,12 @@
 
 	<node machine="rosPi" pkg="ch_bot" name="wheel_motor_controller_node" type="wheel_motor_controller_node" />
 
+	<!--node machine="rosPi" pkg="pi_teleop_PS2" name="foo" type="setPiGpio.sh"/-->
+
+	<node machine="rosPi" pkg="pi_teleop_PS2" name="pi_teleop_PS2_node" type="pi_teleop_PS2_node">
+		<param name="x_limit" type="double" value="2.0" />
+		<param name="y_limit" type="double" value="2.0" />
+		<param name="yaw_limit" type="double" value="1" />
+	</node> 
+
 </launch>
