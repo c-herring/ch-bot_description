@@ -3,7 +3,7 @@
 	
 	<!--group ns="kinect"-->
 		<!--remap from="camera/depth/image_raw" to="sscann"/-->
-		<include file="$(find openni_launch)/launch/openni.launch" machine="rosPi"/>
+		<include file="$(find openni_launch)/launch/openni.launch"/>
 <!--		
 		<node pkg="nodelet" type="nodelet" name="depthimage_to_laserscan" args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet camera/camera_nodelet_manager" >
 			<param name="output_frame_id" value="/camera_depth_frame" />
@@ -13,7 +13,7 @@
 -->
 
 <!-- Normal node works: -->
-		<node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan" machine="rosPi">
+		<node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan">
 			<remap from="image" to="/camera/depth/image_raw"/>
 		</node>
 
