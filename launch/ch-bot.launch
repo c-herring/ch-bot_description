@@ -12,9 +12,9 @@
 	<node machine="rosPi" pkg="pi_teleop_PS2" name="foo" type="setPiGpio.sh"/>
 
 	<node machine="rosPi" pkg="pi_teleop_PS2" name="pi_teleop_PS2_node" type="pi_teleop_PS2_node">
-		<param name="x_limit" type="double" value="0.5" />
-		<param name="y_limit" type="double" value="0.5" />
-		<param name="yaw_limit" type="double" value="0.5" />
+		<param name="x_limit" type="double" value="0.25" />
+		<param name="y_limit" type="double" value="0.25" />
+		<param name="yaw_limit" type="double" value="0.08" />
 	</node> 
 	
 	
